@@ -75,40 +75,40 @@ int main()
             }
         }
                        
-    if((entrada[i] == 32 || entrada[i] == '\n' || entrada[i] == '\0') && flag == 1) // verifica se depois numero tem espaco ou fim de linha ou fim de arquivo
-    {
-        numeroc = atof(numero); // converte a string para numero 
-        soma = soma + numeroc;
-        flag = 0;
-        j = 0;           
-        numero[j] = '\0';
-        
-    }else if(entrada[i] == 33 && (entrada[i + 1] == 32 || entrada[i + 1] == '\n' || entrada[i + 1] == '\0') && flag == 1) //verifica se eh numero fatorial
-    {
-        numeroc = atof(numero);
-        k = 1;
-        fatorial = 1;
-        
-        while(k <= numeroc) // calcula fatorial
+        if((entrada[i] == 32 || entrada[i] == '\n' || entrada[i] == '\0') && flag == 1) // verifica se depois numero tem espaco ou fim de linha ou fim de arquivo
         {
-            fatorial = fatorial * k;
-            k++;
+            numeroc = atof(numero); // converte a string para numero 
+            soma = soma + numeroc;
+            flag = 0;
+            j = 0;           
+            numero[j] = '\0';
+            
+        }else if(entrada[i] == 33 && (entrada[i + 1] == 32 || entrada[i + 1] == '\n' || entrada[i + 1] == '\0') && flag == 1) //verifica se eh numero fatorial
+        {
+            numeroc = atof(numero);
+            k = 1;
+            fatorial = 1;
+            
+            while(k <= numeroc) // calcula fatorial
+            {
+                fatorial = fatorial * k;
+                k++;
+            }
+            
+            soma = soma + fatorial;
+            flag = 0;
+            j = 0;
+            numero[j] = '\0'; 
+            
+        }else if(flag == 1) //numero invalido
+        {
+            flag = 0;
+            j = 0;
+            numero[j] = '\0';
         }
         
-        soma = soma + fatorial;
-        flag = 0;
-        j = 0;
-        numero[j] = '\0'; 
-        
-    }else if(flag == 1) //numero invalido
-    {
-        flag = 0;
-        j = 0;
-        numero[j] = '\0';
+        i++;   
     }
-    
-    i++;   
-   
     printf("%0.2f\n", soma);
 
     return 0;
